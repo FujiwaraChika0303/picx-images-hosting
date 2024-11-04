@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>404 - KurisuRakko</title>
+    <style>
+        /* 设置页面的基本样式，包括全屏高度、居中对齐和背景图片 */
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: url('https://picapi.rakko.io/apix-11.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+        }
+        
+        /* 设置容器样式，包括背景毛玻璃效果和阴影 */
+        .container {
+            text-align: center;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.2); /* 半透明白色背景 */
+            backdrop-filter: blur(10px); /* 毛玻璃效果 */
+            border-radius: 15px; /* 圆角边框 */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* 阴影效果 */
+        }
+        
+        /* 标题的样式 */
+        h1 {
+            font-size: 2em;
+            margin: 0 0 20px;
+        }
+        
+        /* 段落的样式 */
+        p {
+            font-size: 1.2em;
+            margin: 0 0 10px;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // 初始化倒计时时间为 30 秒
+            var countdown = 30;
+            
+            // 创建一个显示倒计时的段落元素
+            var countdownElement = document.createElement('p');
+            countdownElement.style.fontSize = '1.5em';
+            countdownElement.textContent = '倒计时：' + countdown + '秒';
+            
+            // 将倒计时元素添加到页面的容器中
+            document.querySelector('.container').appendChild(countdownElement);
+            
+            // 设置一个定时器，每秒更新倒计时
+            var countdownInterval = setInterval(function () {
+                countdown--;
+                countdownElement.textContent = '倒计时：' + countdown + '秒';
+                
+                // 当倒计时结束时，清除定时器
+                if (countdown <= 0) {
+                    clearInterval(countdownInterval);
+                }
+            }, 1000);
+            
+            // 设置 30 秒后跳转到指定页面
+            setTimeout(function () {
+                window.location.href = "https://rakko.io";
+            }, 30000); // 30秒后跳转到主页
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <!-- 中文版 404 信息 -->
+        <h1>404 - 这是一个错误</h1>
+        <p>看起来你进入了KurisuRakko的站点，但是没有一个明确的目标。</p>
+        <p>30秒后将跳转回主页。</p>
+        
+        <!-- 英文版 404 信息 -->
+        <h1>404 - This is an error</h1>
+        <p>It seems you have entered KurisuRakko's site without a clear target.</p>
+        <p>You will be redirected to the homepage in 30 seconds.</p>
+        
+        <!-- 日文版 404 信息 -->
+        <h1>404 - エラーです</h1>
+        <p>あなたはKurisuRakkoのサイトに入ったようですが、明確な目標がありません。</p>
+        <p>30秒後にホームページにリダイレクトされます。</p>
+    </div>
+</body>
+</html>
